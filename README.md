@@ -1,2 +1,2 @@
 # UniAppLearning
-UniApp学习练手项目
+UniApp学习小程序开发，练手项目
