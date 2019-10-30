@@ -1,0 +1,2 @@
+setCssToHead([".",[1],"content { padding: ",[0,10]," 2%; width: 96%; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }\n.",[1],"title { font-size: ",[0,36],"; line-height: 2em; font-weight: 600; }\n.",[1],"art-content { font-size: ",[0,25],"; line-height: 2em; }\n",],undefined,{path:"./pages/detail/detail.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/detail/detail.wxml') } }));
