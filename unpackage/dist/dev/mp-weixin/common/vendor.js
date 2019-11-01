@@ -8406,7 +8406,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": { "usingComponents": {} }, "pages/detail/detail": { "navigationBarTitleText": "新闻详情", "usingComponents": {} }, "pages/home/home": { "usingComponents": {} }, "pages/classify/classify": { "usingComponents": {} }, "pages/girl/girl": { "usingComponents": {} }, "pages/mine/mine": { "usingComponents": {} }, "pages/publish/publish": { "navigationBarTitleText": "提交干货", "usingComponents": {} } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "UniAppLeanring", "navigationBarBackgroundColor": "#F8F8F8", "backgroundColor": "#F8F8F8", "navigationStyle": "default" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": {}, "pages/home/home": { "enablePullDownRefresh": false }, "pages/classify/classify": {}, "pages/girl/girl": {}, "pages/mine/mine": {}, "pages/publish/publish": { "navigationBarTitleText": "提交干货" }, "pages/web/web": {}, "pages/detail/detail": { "navigationBarTitleText": "新闻详情" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "UniAppLeanring", "navigationBarBackgroundColor": "#FFFFFF", "navigationStyle": "default" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -8529,6 +8529,78 @@ function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */
+/*!*************************************************!*\
+  !*** D:/UniAppProjects/LearningDemo/api/api.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {// api 封装,字符串拼接的时候用``,不是''
+
+
+var get = function get(url) {return new Promise(function (resolve, reject) {
+    var requestUrl = "http://gank.io/api".concat(url);
+
+
+
+    uni.request({
+      url: requestUrl,
+      method: "GET",
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          if (res.data.error) {
+            reject(res.data.error);
+          } else {
+            resolve(res.data);
+          }
+        } else {
+          reject(res.errMsg);
+        }
+      },
+      fail: function fail(e) {
+        reject("网络异常,请检查网络设置！");
+      } });
+
+  });};
+
+var post = function post(url, params) {return new Promise(function (resolve, reject) {
+    uni.request({
+      url: "http://gank.io/api".concat(url),
+      method: "POST",
+      header: {
+        "content-type": "application/x-www-form-urlencoded" //默认值
+      },
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          if (res.data.error) {
+            reject(res.data.error);
+          } else {
+            resolve(res.data);
+          }
+        } else {
+          reject(res.errMsg);
+        }
+      },
+      fail: function fail(e) {
+        reject("网络异常，请检查网络设置！");
+      } });
+
+  });};
+
+// 模块导出，供外界引用
+module.exports = {
+  get: get,
+  post: post };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 ]]);

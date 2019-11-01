@@ -1,0 +1,10 @@
+
+.classify-content {
+	padding-top: 90rpx;
+}
+.item-image {
+	margin-left: 30rpx;
+	width: 100rpx;
+	height: 100rpx;
+}
+

@@ -1,26 +1,27 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/detail/detail",
-    "pages/home/home",
-    "pages/classify/classify",
-    "pages/girl/girl",
-    "pages/mine/mine",
-    "pages/publish/publish"
-  ],
-  "subPackages": [],
-  "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "UniAppLeanring",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8",
-    "navigationStyle": "default"
-  },
-  "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom",
-    "home": "/pages/home/home",
-    "classify": "/pages/classify/classify",
-    "girl": "/pages/girl/girl",
-    "mine": "/pages/mine/mine"
-  }
+     "pages": [
+          "pages/index/index",
+          "pages/home/home",
+          "pages/classify/classify",
+          "pages/girl/girl",
+          "pages/mine/mine",
+          "pages/publish/publish",
+          "pages/web/web",
+          "pages/detail/detail"
+     ],
+     "subPackages": [],
+     "window": {
+          "navigationBarTextStyle": "black",
+          "navigationBarTitleText": "UniAppLeanring",
+          "navigationBarBackgroundColor": "#FFFFFF",
+          "navigationStyle": "default"
+     },
+     "usingComponents": {
+          "cu-custom": "/colorui/components/cu-custom",
+          "home": "/pages/home/home",
+          "classify": "/pages/classify/classify",
+          "girl": "/pages/girl/girl",
+          "mine": "/pages/mine/mine"
+     },
+     "sitemapLocation": "sitemap5.json"
 }

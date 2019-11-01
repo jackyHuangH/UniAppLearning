@@ -27,15 +27,8 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"name": "test",
-					"query": "newsid=5260320",
-					"id": 0,
-					"pathName": "pages/detail/detail"
-				}
-			]
+			"current": -1,
+			"list": []
 		}
 	}
 }

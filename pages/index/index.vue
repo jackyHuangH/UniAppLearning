@@ -1,26 +1,27 @@
 <template>
 	<!--ref 获取DOM对象以及组件对象 -->
 	<view class="content">
+		<!-- 使用自定义Vue组件 -->
 		<home v-if="currPage=='home'"></home>
 		<classify ref="classify" v-if="currPage=='classify'"></classify>
 		<girl ref="girl" v-if="currPage=='girl'"></girl>
 		<mine ref="mine" v-if="currPage=='mine'"></mine>
-
-		<view class="cu-bar tabbar bg-white foot shadow">
+		<!-- 底部tabbar -->
+		<view class="cu-bar tabbar bg-white shadow foot">
 			<view class="action" @click="changeNav" data-curr="home" :class="currPage=='home'?'text-blue':'text-grey'">
 				<view class="cuIcon-homefill"></view> 最新
 			</view>
-			<view class="action" @click="changeNav" data-curr="classify" :class="currPage=='classify'?'text-green':'text-grey'">
+			<view class="action" @click="changeNav" data-curr="classify" :class="currPage=='classify'?'text-blue':'text-grey'">
 				<view class="cuIcon-similar"></view> 分类
 			</view>
-			<view class="action add-action text-grey" @click="publishClick">
+			<view class="action text-grey add-action" @click="publishClick">
 				<button class="cu-btn cuIcon-add bg-pink shadow"></button>
 				发布
 			</view>
-			<view class="action" @click="changeNav" data-curr="girl" :class="currPage=='girl'?'text-red':'text-grey'">
+			<view class="action" @click="changeNav" data-curr="girl" :class="currPage=='girl'?'text-blue':'text-grey'">
 				<view class="cuIcon-album"></view> 妹子
 			</view>
-			<view class="action" @click="changeNav" data-curr="mine" :class="currPage=='mine'?'text-purple':'text-grey'">
+			<view class="action" @click="changeNav" data-curr="mine" :class="currPage=='mine'?'text-blue':'text-grey'">
 				<view class="cuIcon-my"></view> 我的
 			</view>
 		</view>
@@ -31,7 +32,7 @@
 	export default {
 		data() {
 			return {
-				//当前显示的页面
+				// 当前显示的页面
 				currPage: 'home'
 			}
 		},
@@ -82,9 +83,9 @@
 </script>
 
 <style>
-	//自定义标题栏样式
+	/* 自定义标题栏样式 */
 	.title {
-		font-size: 36upx;
+		font-size: 36rpx;
 		color: #282828;
 	}
 
@@ -96,12 +97,12 @@
 	}
 
 	.logo {
-		height: 200upx;
-		width: 200upx;
-		margin-top: 200upx;
+		height: 200rpx;
+		width: 200rpx;
+		margin-top: 200rpx;
 		margin-left: auto;
 		margin-right: auto;
-		margin-bottom: 50upx;
+		margin-bottom: 50rpx;
 	}
 
 	.text-area {

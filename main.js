@@ -3,8 +3,6 @@ import App from './App'
 
 Vue.config.productionTip = false
 
-App.mpType = 'app'
-
 //引入colorui cu-custom 组件
 import cuCustom from './colorui/components/cu-custom.vue'
 Vue.component('cu-custom', cuCustom)
@@ -21,6 +19,8 @@ Vue.component('girl', girl)
 
 import mine from './pages/mine/mine.vue'
 Vue.component('mine', mine)
+
+App.mpType = 'app'
 
 const app = new Vue({
 	...App

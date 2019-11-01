@@ -1,0 +1,1 @@
+<view><scroll-view class="page" scroll-y="true"><web-view src="{{url}}"></web-view></scroll-view></view>
