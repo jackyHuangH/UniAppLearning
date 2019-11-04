@@ -12,7 +12,7 @@ let get = (url) => new Promise((resolve, reject) => {
 		success: (res) => {
 			if (res.statusCode == 200) {
 				if (res.data.error) {
-					reject(res.data.error)
+					reject(res.data.msg)
 				} else {
 					resolve(res.data)
 				}
@@ -30,13 +30,14 @@ let post = (url, params) => new Promise((resolve, reject) => {
 	uni.request({
 		url: `http://gank.io/api${url}`,
 		method: "POST",
+		data: params,
 		header: {
 			"content-type": "application/x-www-form-urlencoded" //默认值
 		},
 		success: (res) => {
 			if (res.statusCode == 200) {
 				if (res.data.error) {
-					reject(res.data.error)
+					reject(res.data.msg)
 				} else {
 					resolve(res.data)
 				}

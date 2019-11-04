@@ -120,21 +120,157 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _api = _interopRequireDefault(__webpack_require__(/*! ../../api/api.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //
 //
 //
 //
-var _default =
-{
-  data: function data() {
-    return {};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var timeOut; //定时器
+var _default = { data: function data() {return { currFocus: "", index: -1, classifies: [{ name: "Android", category: "Android" }, { name: "iOS", category: "iOS" }, { name: "App", category: "App" }, { name: "前端", category: "前端" }, { name: "瞎推荐", category: "瞎推荐" }, { name: "拓展资源", category: "拓展资源" }, {
+        name: "休息视频",
+        category: "休息视频" }],
+
+
+      params: {
+        url: "",
+        desc: "",
+        who: "",
+        type: "",
+        debug: true } };
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {
+    //picker选择回调
+    onPickerChanged: function onPickerChanged(event) {
+      this.index = event.detail.value;
+    },
+    onInput: function onInput(event) {
+      var key = event.currentTarget.dataset.key;
+      var value = event.detail.value;
+      this.params[key] = value;
+    },
+    //提交表单
+    onSubmit: function onSubmit(event) {
+      // 非空校验
+      if (!this.params.url) {
+        this.currFocus = "url";
+        uni.showToast({
+          icon: "none",
+          title: "请输入干货的网址" });
+
+        return;
+      }
+      if (!this.params.desc) {
+        this.currFocus = "desc";
+        uni.showToast({
+          icon: "none",
+          title: "请输入干货描述" });
+
+        return;
+      }
+      if (!this.params.who) {
+        this.currFocus = "who";
+        uni.showToast({
+          icon: "none",
+          title: "请输入干货的署名" });
+
+        return;
+      }
+      if (this.index == -1) {
+        uni.showToast({
+          icon: "none",
+          title: "请选择干货类型" });
+
+        return;
+      }
+      this.params.type = this.classifies[this.index].category;
+      uni.showLoading({
+        title: "提交中..." });
+
+      console.log(this.params);
+      _api.default.post("/add2gank", this.params).
+      then(function (res) {
+        console.log("res:" + res);
+        uni.hideLoading();
+        uni.showToast({
+          icon: "success",
+          title: "提交成功！" });
+
+        timeOut = setTimeout(function () {
+          // 提交成功后返回上页
+          wx.navigateBack({
+            delta: 1 });
+
+        }, 1000);
+      }).catch(function (e) {
+        uni.hideLoading();
+        uni.showToast({
+          icon: "none",
+          title: e });
+
+      });
+    },
+    onUnload: function onUnload() {
+      clearTimeout(timeOut);
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 
