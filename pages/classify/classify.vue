@@ -1,7 +1,9 @@
 <template name="classify">
 	<view>
+		<!-- #ifdef：if defined 仅在某平台存在
+			#ifndef：if not defined 除了某平台均存在 -->
 		<!-- #ifndef H5 -->
-		<scroll-view scroll-y="true" class="page" lower-threshold="60px" @scrolltolower="scrollToLoadMore">
+		<scroll-view scroll-y="true" class="page" lower-threshold="60px" @scrolltolower="scrollToLoadMore" enable-back-to-top="true">
 			<!-- #endif -->
 
 			<!-- 顶部横向滑动tab -->
@@ -58,7 +60,7 @@
 				page: 1,
 				isLoading: true,
 				dataList: [],
-				CustomBar:this.CustomBar,
+				CustomBar: this.CustomBar,
 				tabs: [{
 						name: "全部",
 						category: "all"
@@ -121,7 +123,7 @@
 				this.isLoading = true;
 				this.getListData();
 			},
-			//获取数据列表
+			// 获取数据列表
 			getListData() {
 				if (this.page == 1) {
 					this.showTopLoading = true;
@@ -152,10 +154,10 @@
 					})
 			},
 			//item点击事件
-			onItemClick(e){
-				let url=e.currentTarget.dataset.url;
+			onItemClick(e) {
+				let url = e.currentTarget.dataset.url;
 				uni.navigateTo({
-					url:`/pages/web/web?url=${encodeURIComponent(url)}`
+					url: `/pages/web/web?url=${encodeURIComponent(url)}`
 				})
 			}
 		}

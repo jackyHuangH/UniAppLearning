@@ -201,6 +201,7 @@ var _default = { data: function data() {return { currFocus: "", index: -1, class
     onPickerChanged: function onPickerChanged(event) {
       this.index = event.detail.value;
     },
+    //拿到input输入内容
     onInput: function onInput(event) {
       var key = event.currentTarget.dataset.key;
       var value = event.detail.value;

@@ -169,6 +169,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 var _api = _interopRequireDefault(__webpack_require__(/*! ../../api/api.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -216,10 +218,10 @@ var _api = _interopRequireDefault(__webpack_require__(/*! ../../api/api.js */ 20
 //
 //
 //
-var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, showLoadmore: false, showTopLoading: false, tabCur: 0, page: 1, isLoading: true, dataList: [], CustomBar: this.CustomBar, tabs: [{ name: "全部", category: "all" }, { name: "Android", category: "Android" }, { name: "iOS", category: "iOS" }, { name: "App", category: "App" }, { name: "前端", category: "前端" }, { name: "瞎推荐", category: "瞎推荐" }, { name: "拓展资源", category: "拓展资源" }, { name: "休息视频", category: "休息视频" }] };},
-  //组件生命周期方法
+//
+//
+var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, showLoadmore: false, showTopLoading: false, tabCur: 0, page: 1, isLoading: true, dataList: [], CustomBar: this.CustomBar, tabs: [{ name: "全部", category: "all" }, { name: "Android", category: "Android" }, { name: "iOS", category: "iOS" }, { name: "App", category: "App" }, { name: "前端", category: "前端" }, { name: "瞎推荐", category: "瞎推荐" }, { name: "拓展资源", category: "拓展资源" }, { name: "休息视频", category: "休息视频" }] };}, //组件生命周期方法
   created: function created() {
-
 
 
   },
@@ -244,7 +246,7 @@ var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, sho
       this.isLoading = true;
       this.getListData();
     },
-    //获取数据列表
+    // 获取数据列表
     getListData: function getListData() {var _this = this;
       if (this.page == 1) {
         this.showTopLoading = true;

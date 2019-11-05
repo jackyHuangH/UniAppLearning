@@ -11,17 +11,17 @@
 			<view class="action" @click="changeNav" data-curr="home" :class="currPage=='home'?'text-blue':'text-grey'">
 				<view class="cuIcon-homefill"></view> 最新
 			</view>
-			<view class="action" @click="changeNav" data-curr="classify" :class="currPage=='classify'?'text-blue':'text-grey'">
+			<view class="action" @click="changeNav" data-curr="classify" :class="currPage=='classify'?'text-orange':'text-grey'">
 				<view class="cuIcon-similar"></view> 分类
 			</view>
 			<view class="action text-grey add-action" @click="publishClick">
 				<button class="cu-btn cuIcon-add bg-pink shadow"></button>
 				发布
 			</view>
-			<view class="action" @click="changeNav" data-curr="girl" :class="currPage=='girl'?'text-blue':'text-grey'">
+			<view class="action" @click="changeNav" data-curr="girl" :class="currPage=='girl'?'text-pink':'text-grey'">
 				<view class="cuIcon-album"></view> 妹子
 			</view>
-			<view class="action" @click="changeNav" data-curr="mine" :class="currPage=='mine'?'text-blue':'text-grey'">
+			<view class="action" @click="changeNav" data-curr="mine" :class="currPage=='mine'?'text-green':'text-grey'">
 				<view class="cuIcon-my"></view> 我的
 			</view>
 		</view>

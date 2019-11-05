@@ -4,7 +4,7 @@
 		<scroll-view scroll-y="true" class="page">
 			<view class="cu-form-group margin-top">
 				<view class="title">网址</view>
-				<input type="text" placeholder="请输入干货的网址" :value="params.url" @input="onInput" data-key="url" :focus="currFocus=='url'" />
+				<input type="text" placeholder="请输入干货的网址" :value="params.url" @input="onInput" data-key="url" :focus="currFocus=='url'"/>
 			</view>
 			<view class="cu-form-group margin-top">
 				<view class="title">描述</view>
@@ -79,6 +79,7 @@
 			onPickerChanged(event) {
 				this.index = event.detail.value;
 			},
+			//拿到input输入内容
 			onInput(event) {
 				let key = event.currentTarget.dataset.key;
 				let value = event.detail.value;
