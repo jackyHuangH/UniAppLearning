@@ -5056,9 +5056,56 @@ scroll-view.cu-steps .cu-item {
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	color: #FFFFFF;
+	color: #ffffff;
 	text-align: center;
 	border-bottom-left-radius: 6rpx;
 	border-bottom-right-radius: 6rpx;
+}
+
+
+.uCenter-bg {
+	background-image: url('https://image.weilanwl.com/color2.0/index.jpg');
+	background-size: contain;
+	height: 450rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding-top: 40rpx;
+	overflow: hidden;
+	position: relative;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	color: #FFFFFF;
+	font-weight: 300;
+	text-shadow: 2 2 3px #282828;
+}
+.uCenter-bg image {
+	width: 150rpx;
+	height: 150rpx;
+}
+.uCenter-bg .png {
+	border: 1rpx solid #ffffff;
+	border-radius: 50%;
+}
+.uCenter-bg .gif-wave{
+	position: absolute;
+	width: 100%;
+	height: 100rpx;
+	left: 0;
+	bottom: 0;
+	z-index: 99;
+	mix-blend-mode: screen;
 }
 

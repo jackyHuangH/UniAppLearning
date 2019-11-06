@@ -12,7 +12,9 @@
 		},
 		{
 			"path": "pages/classify/classify",
-			"style": {}
+			"style": {
+				"enablePullDownRefresh": false
+			}
 		},
 		{
 			"path": "pages/girl/girl",
@@ -27,18 +29,17 @@
 			"style": {
 				"navigationBarTitleText": "提交干货"
 			}
-		}
-	    ,{
-            "path" : "pages/web/web",
-            "style" : {}
-        },
+		}, {
+			"path": "pages/web/web",
+			"style": {}
+		},
 		{
 			"path": "pages/detail/detail",
 			"style": {
 				"navigationBarTitleText": "新闻详情"
 			}
 		}
-    ],
+	],
 	"globalStyle": {
 		"mp-alipay": {
 			// 支付宝小程序有关
@@ -48,7 +49,7 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "UniAppLeanring",
 		"navigationBarBackgroundColor": "#FFFFFF",
-		"navigationStyle": "default"
+		"navigationStyle":"default"
 	}
 	//使用condition方便调试某个页面,仅开发期间生效
 	/* "condition": {

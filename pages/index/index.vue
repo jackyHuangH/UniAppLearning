@@ -2,12 +2,12 @@
 	<!--ref 获取DOM对象以及组件对象 -->
 	<view class="content">
 		<!-- 使用自定义Vue组件 -->
-		<home v-if="currPage=='home'"></home>
-		<classify ref="classify" v-if="currPage=='classify'"></classify>
-		<girl ref="girl" v-if="currPage=='girl'"></girl>
-		<mine ref="mine" v-if="currPage=='mine'"></mine>
+		<home v-if="currPage==='home'"></home>
+		<classify ref="classify" v-if="currPage==='classify'"></classify>
+		<girl ref="girl" v-if="currPage==='girl'"></girl>
+		<mine ref="mine" v-if="currPage==='mine'"></mine>
 		<!-- 底部tabbar -->
-		<view class="cu-bar tabbar bg-white shadow foot">
+		<view class="cu-bar tabbar bg-white shadow foot" open-type="switchTab">
 			<view class="action" @click="changeNav" data-curr="home" :class="currPage=='home'?'text-blue':'text-grey'">
 				<view class="cuIcon-homefill"></view> 最新
 			</view>
@@ -41,8 +41,19 @@
 				title: "今日最新干货"
 			})
 		},
-		onShow: function() {
-
+		onShow() {
+			if (this.currPage=='mine') {
+				this.$refs.mine.getUserInfo();
+			}
+		},
+		onReachBottom() {
+			// #ifdef H5
+			if (this.currPage=='classify') {
+				this.$refs.classify.scrollToLoadMore();
+			}else if (this.currPage=='girl') {
+				this.$refs.girl.onLoadMore();
+			}
+			// #endif
 		},
 		methods: {
 			//点击导航按钮切换页面
@@ -60,7 +71,7 @@
 						currTitle = "妹子";
 						break;
 					case "mine":
-						currTitle = "我的";
+						currTitle = "";
 						// #ifdef APP-PLUS
 						currTitle = "我的";
 						// #endif

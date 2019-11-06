@@ -170,7 +170,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 var _api = _interopRequireDefault(__webpack_require__(/*! ../../api/api.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
@@ -219,9 +218,10 @@ var _api = _interopRequireDefault(__webpack_require__(/*! ../../api/api.js */ 20
 //
 //
 //
-//
-var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, showLoadmore: false, showTopLoading: false, tabCur: 0, page: 1, isLoading: true, dataList: [], CustomBar: this.CustomBar, tabs: [{ name: "全部", category: "all" }, { name: "Android", category: "Android" }, { name: "iOS", category: "iOS" }, { name: "App", category: "App" }, { name: "前端", category: "前端" }, { name: "瞎推荐", category: "瞎推荐" }, { name: "拓展资源", category: "拓展资源" }, { name: "休息视频", category: "休息视频" }] };}, //组件生命周期方法
+var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, showLoadmore: false, showTopLoading: false, tabCur: 0, page: 1, CustomBar: this.CustomBar, isLoading: true, dataList: [], tabs: [{ name: '全部', category: 'all' }, { name: 'Android', category: 'Android' }, { name: 'iOS', category: 'iOS' }, { name: 'App', category: 'App' }, { name: '前端', category: '前端' }, { name: '瞎推荐', category: '瞎推荐' }, { name: '拓展资源', category: '拓展资源' }, { name: '休息视频', category: '休息视频' }] };},
+  //组件生命周期方法
   created: function created() {
+
 
 
   },
@@ -231,7 +231,7 @@ var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, sho
   methods: {
     // 页面生命周期方法
     onReachBottom: function onReachBottom() {
-      console.log("reachBottom");
+      console.log('reachBottom');
     },
     //加载更多
     scrollToLoadMore: function scrollToLoadMore() {
@@ -264,7 +264,8 @@ var _default = { data: function data() {return { scrollLeft: 0, fixedTop: 0, sho
           _this.showTopLoading = false;
           _this.page++;
         }
-      }).catch(function (e) {
+      }).
+      catch(function (e) {
         if (_this.page == 1) {
           _this.dataList = [];
           _this.showTopLoading = true;
@@ -314,7 +315,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 49:
+/***/ 53:
 /*!*************************************************************************************!*\
   !*** D:/UniAppProjects/LearningDemo/main.js?{"page":"pages%2Fclassify%2Fclassify"} ***!
   \*************************************************************************************/
@@ -331,5 +332,5 @@ createPage(_classify.default);
 
 /***/ })
 
-},[[49,"common/runtime","common/vendor"]]]);
+},[[53,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/classify/classify.js.map

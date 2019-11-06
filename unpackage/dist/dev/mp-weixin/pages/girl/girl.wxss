@@ -28,7 +28,7 @@
 	position: absolute;
 	left: 0;
 	bottom: 0;
-	color: #FFFFFF;
+	color: #ffffff;
 	text-align: center;
 	border-bottom-left-radius: 6rpx;
 	border-bottom-right-radius: 6rpx;

@@ -294,7 +294,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 48:
+/***/ 52:
 /*!*****************************************************************************!*\
   !*** D:/UniAppProjects/LearningDemo/main.js?{"page":"pages%2Fhome%2Fhome"} ***!
   \*****************************************************************************/
@@ -311,5 +311,5 @@ createPage(_home.default);
 
 /***/ })
 
-},[[48,"common/runtime","common/vendor"]]]);
+},[[52,"common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../../.sourcemap/mp-weixin/pages/home/home.js.map
