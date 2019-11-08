@@ -23,7 +23,7 @@
 	-webkit-flex-direction: column;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
-	color: #FFFFFF;
+	color: #ffffff;
 	font-weight: 300;
 	text-shadow: 2 2 3px #282828;
 }
@@ -32,10 +32,10 @@
 	height: 150rpx;
 }
 .uCenter-bg .png {
-	border: 1rpx solid #ffffff;
+	border: 2rpx solid #ffffff;
 	border-radius: 50%;
 }
-.uCenter-bg .gif-wave{
+.uCenter-bg .gif-wave {
 	position: absolute;
 	width: 100%;
 	height: 100rpx;
@@ -43,5 +43,8 @@
 	bottom: 0;
 	z-index: 99;
 	mix-blend-mode: screen;
+}
+.item-margin-left {
+	margin-left: 5px;
 }
 

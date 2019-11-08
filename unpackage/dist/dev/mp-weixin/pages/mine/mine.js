@@ -105,7 +105,40 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -136,9 +169,33 @@ var _default =
       console.log('methods：' + 'onLoad');
     },
     //获取用户信息
-    getUserInfo: function getUserInfo() {
+    getUserInfo: function getUserInfo() {},
+    onItemClick: function onItemClick(event) {
+      var type = event.currentTarget.dataset.type;
+      switch (type) {
+        case 'search':
+          //搜索干货
+          uni.navigateTo({
+            url: '/pages/mine/search' });
+
+          break;
+        case 'history':
+          // 历史干货
+          break;
+        case 'other':
+          // 其他项目
+          break;
+        case 'about':
+          // 关于
+          break;
+        case 'star':
+          // 点赞
+          break;
+        default:
+          break;}
 
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 
