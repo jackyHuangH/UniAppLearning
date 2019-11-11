@@ -181,6 +181,9 @@ var _default =
           break;
         case 'history':
           // 历史干货
+          uni.navigateTo({
+            url: '/pages/mine/history' });
+
           break;
         case 'other':
           // 其他项目

@@ -88,6 +88,22 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l0 = _vm.__map(_vm.dataList, function(item, index) {
+    var g0 = item.publishedAt.substring(0, 10)
+    return {
+      $orig: _vm.__get_orig(item),
+      g0: g0
+    }
+  })
+
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l0: l0
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -120,23 +136,130 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-var _default =
-{
-  data: function data() {
-    return {};
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
-  },
-  methods: {} };exports.default = _default;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _api = _interopRequireDefault(__webpack_require__(/*! ../../api/api.js */ 20));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { fixedTop: 0, keyWord: '', pageNum: 1, showLoadmore: false, isLoading: true, dataList: [], CustomBar: this.CustomBar };}, onLoad: function onLoad() {}, onReachBottom: function onReachBottom() {console.log('onReachBottom');this.scrollToLoadMore();}, methods: { onInput: function onInput(e) {this.keyWord = e.detail.value;}, onSearchClick: function onSearchClick() {if (!this.keyWord) {uni.showToast({ icon: 'none', title: '请输入关键字' });return;}this.pageNum = 1;this.getList();}, getList: function getList() {var _this = this;this.showLoadmore = true;if (this.pageNum == 1) {
+        uni.showLoading({
+          title: "搜索中..." });
+
+      }
+      _api.default.get("/search/query/".concat(this.keyWord, "/category/all/count/20/page/").concat(this.pageNum)).
+      then(function (res) {
+        uni.hideLoading();
+        var data = res.results;
+        _this.dataList = _this.pageNum == 1 ? data : _this.dataList.concat(data);
+        if (_this.pageNum == 1 && data.length == 0) {
+          uni.showToast({
+            icon: 'none',
+            title: '未搜到相关内容,换个词试试~' });
+
+        } else {
+          if (data.length < 10) {
+            _this.isLoading = false;
+          } else {
+            _this.showLoadmore = false;
+            _this.pageNum++;
+          }
+        }
+      }).
+      catch(function (e) {
+        if (_this.pageNum == 1) {
+          _this.dataList = [];
+        }
+        _this.isLoading = false;
+      });
+    },
+    scrollToLoadMore: function scrollToLoadMore() {
+      if (!this.showLoadmore && this.isLoading) {
+        this.getList();
+      }
+    },
+    onItemClick: function onItemClick(e) {
+      var url = e.currentTarget.dataset.url;
+      uni.navigateTo({
+        url: "/pages/web/web?url=".concat(encodeURIComponent(url)) });
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

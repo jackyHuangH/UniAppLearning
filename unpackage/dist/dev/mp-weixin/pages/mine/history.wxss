@@ -1,0 +1,36 @@
+
+.history-item {
+	position: relative;
+	width: 92vw;
+	margin: 30rpx 4vw;
+}
+.history-item image {
+	width: 100%;
+	height: 340rpx;
+	border-radius: 12rpx;
+}
+.history-item .item-mask {
+	background-color: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	height: 340rpx;
+	border-radius: 12rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.item-mask .time {
+	color: #ffffff;
+	font-size: 32rpx;
+	font-weight: bold;
+	position: absolute;
+	left: 30rpx;
+	top: 130rpx;
+}
+.item-mask .hot {
+	color: #ffffff;
+	font-size: 28rpx;
+	position: absolute;
+	left: 30rpx;
+	top: 180rpx;
+}
+

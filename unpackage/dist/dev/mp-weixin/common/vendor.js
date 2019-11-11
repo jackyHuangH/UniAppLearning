@@ -1,6 +1,6 @@
-(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],[
-/* 0 */,
-/* 1 */
+(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
+
+/***/ 1:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -734,7 +734,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -1499,7 +1499,115 @@ var uni$1 = uni;var _default =
 uni$1;exports.default = _default;
 
 /***/ }),
-/* 2 */
+
+/***/ 14:
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 2:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -6981,7 +7089,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7002,14 +7110,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7085,7 +7193,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -7461,7 +7569,77 @@ internalMixin(Vue);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 3 */
+
+/***/ 20:
+/*!*************************************************!*\
+  !*** D:/UniAppProjects/LearningDemo/api/api.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {// api 封装,字符串拼接的时候用``,不是''
+
+
+var get = function get(url) {return new Promise(function (resolve, reject) {
+    var requestUrl = "http://gank.io/api".concat(url);
+
+
+
+    uni.request({
+      url: requestUrl,
+      method: "GET",
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          if (res.data.error) {
+            reject(res.data.msg);
+          } else {
+            resolve(res.data);
+          }
+        } else {
+          reject(res.errMsg);
+        }
+      },
+      fail: function fail(e) {
+        reject("网络异常,请检查网络设置！");
+      } });
+
+  });};
+
+var post = function post(url, params) {return new Promise(function (resolve, reject) {
+    uni.request({
+      url: "http://gank.io/api".concat(url),
+      method: "POST",
+      data: params,
+      header: {
+        "content-type": "application/x-www-form-urlencoded" //默认值
+      },
+      success: function success(res) {
+        if (res.statusCode == 200) {
+          if (res.data.error) {
+            reject(res.data.msg);
+          } else {
+            resolve(res.data);
+          }
+        } else {
+          reject(res.errMsg);
+        }
+      },
+      fail: function fail(e) {
+        reject("网络异常，请检查网络设置！");
+      } });
+
+  });};
+
+// 模块导出，供外界引用
+module.exports = {
+  get: get,
+  post: post };
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 3:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -7491,7 +7669,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 4 */
+
+/***/ 4:
 /*!*************************************************!*\
   !*** D:/UniAppProjects/LearningDemo/pages.json ***!
   \*************************************************/
@@ -7502,7 +7681,8 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */
+
+/***/ 5:
 /*!*******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/dist/index.js ***!
   \*******************************************************/
@@ -8388,7 +8568,8 @@ main();
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 6 */
+
+/***/ 6:
 /*!******************************************************!*\
   !*** ./node_modules/@dcloudio/uni-stat/package.json ***!
   \******************************************************/
@@ -8398,7 +8579,8 @@ main();
 module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.0.0-23720191024001","_inBundle":false,"_integrity":"sha512-vJEk493Vdb8KueNzR2otzDi23rfyRcQBo/t1R41MwNGPk+AUB94gh10+HVLo98DRcvMzkuVofz3KXTAfEx24iw==","_location":"/@dcloudio/uni-stat","_phantomChildren":{},"_requested":{"type":"tag","registry":true,"raw":"@dcloudio/uni-stat@next","name":"@dcloudio/uni-stat","escapedName":"@dcloudio%2funi-stat","scope":"@dcloudio","rawSpec":"next","saveSpec":null,"fetchSpec":"next"},"_requiredBy":["#USER","/","/@dcloudio/vue-cli-plugin-uni"],"_resolved":"https://registry.npmjs.org/@dcloudio/uni-stat/-/uni-stat-2.0.0-23720191024001.tgz","_shasum":"18272814446a9bc6053bc92666ec7064a1767588","_spec":"@dcloudio/uni-stat@next","_where":"/Users/fxy/Documents/DCloud/HbuilderX-plugins/release/uniapp-cli","author":"","bugs":{"url":"https://github.com/dcloudio/uni-app/issues"},"bundleDependencies":false,"deprecated":false,"description":"","devDependencies":{"@babel/core":"^7.5.5","@babel/preset-env":"^7.5.5","eslint":"^6.1.0","rollup":"^1.19.3","rollup-plugin-babel":"^4.3.3","rollup-plugin-clear":"^2.0.7","rollup-plugin-commonjs":"^10.0.2","rollup-plugin-copy":"^3.1.0","rollup-plugin-eslint":"^7.0.0","rollup-plugin-json":"^4.0.0","rollup-plugin-node-resolve":"^5.2.0","rollup-plugin-replace":"^2.2.0","rollup-plugin-uglify":"^6.0.2"},"files":["dist","package.json","LICENSE"],"gitHead":"a725c04ef762e5df78a9a69d140c2666e0de05fc","homepage":"https://github.com/dcloudio/uni-app#readme","license":"Apache-2.0","main":"dist/index.js","name":"@dcloudio/uni-stat","repository":{"type":"git","url":"git+https://github.com/dcloudio/uni-app.git","directory":"packages/uni-stat"},"scripts":{"build":"NODE_ENV=production rollup -c rollup.config.js","dev":"NODE_ENV=development rollup -w -c rollup.config.js"},"version":"2.0.0-23720191024001"};
 
 /***/ }),
-/* 7 */
+
+/***/ 7:
 /*!******************************************************************!*\
   !*** D:/UniAppProjects/LearningDemo/pages.json?{"type":"style"} ***!
   \******************************************************************/
@@ -8406,10 +8588,11 @@ module.exports = {"_from":"@dcloudio/uni-stat@next","_id":"@dcloudio/uni-stat@2.
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": {}, "pages/home/home": { "enablePullDownRefresh": false }, "pages/classify/classify": { "enablePullDownRefresh": false }, "pages/girl/girl": {}, "pages/mine/mine": {}, "pages/publish/publish": { "navigationBarTitleText": "提交干货" }, "pages/web/web": {}, "pages/mine/search": { "navigationBarTitleText": "搜索干货" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "UniAppLeanring", "navigationBarBackgroundColor": "#FFFFFF", "navigationStyle": "default" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/index/index": {}, "pages/home/home": { "enablePullDownRefresh": false }, "pages/classify/classify": { "enablePullDownRefresh": false }, "pages/girl/girl": {}, "pages/mine/mine": {}, "pages/publish/publish": { "navigationBarTitleText": "提交干货" }, "pages/web/web": {}, "pages/mine/search": { "navigationBarTitleText": "搜索干货" }, "pages/mine/history": { "navigationBarTitleText": "历史干货" } }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "UniAppLeanring", "navigationBarBackgroundColor": "#FFFFFF", "navigationStyle": "default" } };exports.default = _default;
 
 /***/ }),
-/* 8 */
+
+/***/ 8:
 /*!*****************************************************************!*\
   !*** D:/UniAppProjects/LearningDemo/pages.json?{"type":"stat"} ***!
   \*****************************************************************/
@@ -8420,189 +8603,158 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "appid": "__UNI__0386586" };exports.default = _default;
 
 /***/ }),
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */
-/*!********************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode /* vue-cli only */
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */
-/*!*************************************************!*\
-  !*** D:/UniAppProjects/LearningDemo/api/api.js ***!
-  \*************************************************/
+/***/ 93:
+/*!*****************************************************!*\
+  !*** D:/UniAppProjects/LearningDemo/common/util.js ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {// api 封装,字符串拼接的时候用``,不是''
+function formatTime(time) {
+  if (typeof time !== 'number' || time < 0) {
+    return time;
+  }
+
+  var hour = parseInt(time / 3600);
+  time = time % 3600;
+  var minute = parseInt(time / 60);
+  time = time % 60;
+  var second = time;
+
+  return [hour, minute, second].map(function (n) {
+    n = n.toString();
+    return n[1] ? n : '0' + n;
+  }).join(':');
+}
+
+function formatLocation(longitude, latitude) {
+  if (typeof longitude === 'string' && typeof latitude === 'string') {
+    longitude = parseFloat(longitude);
+    latitude = parseFloat(latitude);
+  }
+
+  longitude = longitude.toFixed(2);
+  latitude = latitude.toFixed(2);
+
+  return {
+    longitude: longitude.toString().split('.'),
+    latitude: latitude.toString().split('.') };
+
+}
+var dateUtils = {
+  UNITS: {
+    '年': 31557600000,
+    '月': 2629800000,
+    '天': 86400000,
+    '小时': 3600000,
+    '分钟': 60000,
+    '秒': 1000 },
+
+  humanize: function humanize(milliseconds) {
+    var humanize = '';
+    for (var key in this.UNITS) {
+      if (milliseconds >= this.UNITS[key]) {
+        humanize = Math.floor(milliseconds / this.UNITS[key]) + key + '前';
+        break;
+      }
+    }
+    return humanize || '刚刚';
+  },
+  format: function format(dateStr) {
+    var date = this.parse(dateStr);
+    var diff = Date.now() - date.getTime();
+    if (diff < this.UNITS['天']) {
+      return this.humanize(diff);
+    }
+    var _format = function _format(number) {
+      return number < 10 ? '0' + number : number;
+    };
+    return date.getFullYear() + '/' + _format(date.getMonth() + 1) + '/' + _format(date.getDate()) + '-' +
+    _format(date.getHours()) + ':' + _format(date.getMinutes());
+  },
+  parse: function parse(str) {//将"yyyy-mm-dd HH:MM:ss"格式的字符串，转化为一个Date对象
+    var a = str.split(/[^0-9]/);
+    return new Date(a[0], a[1] - 1, a[2], a[3], a[4], a[5]);
+  } };
 
 
-var get = function get(url) {return new Promise(function (resolve, reject) {
-    var requestUrl = "http://gank.io/api".concat(url);
+// ---------------------------自定义方法---------------------------------------
 
+var formatTimeString = function formatTimeString(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var hour = date.getHours();
+  var minute = date.getMinutes();
+  var second = date.getSeconds();
 
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':');
+};
+var formatDate = function formatDate(date) {
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  return [year, month, day].map(formatNumber).join('-');
+};
+var formatNumber = function formatNumber(n) {
+  n = n.toString();
+  return n[1] ? n : '0' + n;
+};
+var getLanguageColor = function getLanguageColor(language) {
+  switch (language) {
+    case "Java":
+      return "#b07219";
+    case "JavaScript":
+      return "#f1e05a";
+    case "Kotlin":
+      return "#F18E33";
+    case "Dart":
+      return "#00B4AB";
+    case "Objective-C":
+      return "#438eff";
+    case "Swift":
+      return "#ffac45";
+    case "Python":
+      return "#3572A5";
+    case "HTML":
+      return "##438ef";
+    case "CSS":
+      return "#563d7c";
+    case "C#":
+      return "#178600";
+    case "Vue":
+      return "#2c3e50";
+    case "PHP":
+      return "#4F5D95";
+    case "TypeScript":
+      return "#2b7489";
+    default:
+      return "#F18E33";}
 
-    uni.request({
-      url: requestUrl,
-      method: "GET",
-      success: function success(res) {
-        if (res.statusCode == 200) {
-          if (res.data.error) {
-            reject(res.data.msg);
-          } else {
-            resolve(res.data);
-          }
-        } else {
-          reject(res.errMsg);
-        }
-      },
-      fail: function fail(e) {
-        reject("网络异常,请检查网络设置！");
-      } });
+};
 
-  });};
+var friendNum = function friendNum(num) {
+  if (num <= 1000) {
+    return num;
+  } else if (num > 1000 && num <= 100 * 1000) {
+    return (num / 1000).toFixed(1) + "k";
+  } else {
+    return parseInt(num / 1000) + "k";
+  }
+};
 
-var post = function post(url, params) {return new Promise(function (resolve, reject) {
-    uni.request({
-      url: "http://gank.io/api".concat(url),
-      method: "POST",
-      data: params,
-      header: {
-        "content-type": "application/x-www-form-urlencoded" //默认值
-      },
-      success: function success(res) {
-        if (res.statusCode == 200) {
-          if (res.data.error) {
-            reject(res.data.msg);
-          } else {
-            resolve(res.data);
-          }
-        } else {
-          reject(res.errMsg);
-        }
-      },
-      fail: function fail(e) {
-        reject("网络异常，请检查网络设置！");
-      } });
-
-  });};
-
-// 模块导出，供外界引用
 module.exports = {
-  get: get,
-  post: post };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+  formatTime: formatTime,
+  formatLocation: formatLocation,
+  dateUtils: dateUtils,
+  formatTimeString: formatTimeString,
+  formatDate: formatDate,
+  getLanguageColor: getLanguageColor,
+  friendNum: friendNum };
 
 /***/ })
-]]);
+
+}]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/common/vendor.js.map

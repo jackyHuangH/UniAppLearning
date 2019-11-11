@@ -145,6 +145,7 @@ var webview;var _default =
   },
   methods: {
     onLoad: function onLoad(options) {
+      // 页面带过来的数据
       console.log(options);
       this.url = decodeURIComponent(options.url);
     },
