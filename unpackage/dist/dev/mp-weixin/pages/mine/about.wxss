@@ -1,0 +1,15 @@
+
+.about-box {
+	padding: 30rpx;
+}
+.about-box .title{
+	font-size: 32rpx;
+	padding: 30rpx 0;
+	color: #282828;
+}
+.about-box .content{
+	font-size: 26rpx;
+	padding: 30rpx 0;
+	color: #333333;
+}
+

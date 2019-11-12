@@ -15,6 +15,20 @@
 	height: 340rpx;
 	border-radius: 12rpx;
 	position: absolute;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center; /* 垂直居中 */
+	text-align: center; /* 水平居中 */
 	top: 0;
 	left: 0;
 }
@@ -22,15 +36,15 @@
 	color: #ffffff;
 	font-size: 32rpx;
 	font-weight: bold;
-	position: absolute;
+	/* position: absolute;
 	left: 30rpx;
-	top: 130rpx;
+	top: 130rpx; */
 }
 .item-mask .hot {
 	color: #ffffff;
 	font-size: 28rpx;
-	position: absolute;
+	/* position: absolute;
 	left: 30rpx;
-	top: 180rpx;
+	top: 180rpx; */
 }
 

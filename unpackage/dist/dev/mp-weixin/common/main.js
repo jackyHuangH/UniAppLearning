@@ -28,7 +28,7 @@ var _girl = _interopRequireDefault(__webpack_require__(/*! ./pages/girl/girl.vue
 
 
 var _mine = _interopRequireDefault(__webpack_require__(/*! ./pages/mine/mine.vue */ 37));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.config.productionTip = false; //引入colorui cu-custom 组件
-var cuCustom = function cuCustom() {return __webpack_require__.e(/*! import() | colorui/components/cu-custom */ "colorui/components/cu-custom").then(__webpack_require__.bind(null, /*! ./colorui/components/cu-custom.vue */ 82));};_vue.default.component('cu-custom', cuCustom); //使用Vue自定义组件：
+var cuCustom = function cuCustom() {return __webpack_require__.e(/*! import() | colorui/components/cu-custom */ "colorui/components/cu-custom").then(__webpack_require__.bind(null, /*! ./colorui/components/cu-custom.vue */ 113));};_vue.default.component('cu-custom', cuCustom); //使用Vue自定义组件：
 _vue.default.component('home', _home.default);_vue.default.component('classify', _classify.default);_vue.default.component('girl', _girl.default);_vue.default.component('mine', _mine.default);
 _App.default.mpType = 'app';
 
@@ -1186,7 +1186,9 @@ var _default =
   methods: {
     //登录
     onLoginClick: function onLoginClick() {
-      console.log('methods：' + 'onLoad');
+      uni.navigateTo({
+        url: '../login/login' });
+
     },
     //获取用户信息
     getUserInfo: function getUserInfo() {},
@@ -1207,12 +1209,22 @@ var _default =
           break;
         case 'other':
           // 其他项目
+          uni.navigateTo({
+            url: '/pages/mine/other' });
+
           break;
         case 'about':
           // 关于
+          uni.navigateTo({
+            url: '/pages/mine/about' });
+
           break;
         case 'star':
           // 点赞
+          var url = 'https://github.com/jackyHuangH/UniAppLearning';
+          uni.navigateTo({
+            url: "/pages/web/web?url=".concat(encodeURIComponent(url)) });
+
           break;
         default:
           break;}

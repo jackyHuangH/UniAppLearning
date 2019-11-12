@@ -65,11 +65,11 @@ export default {
 			}
 		},
 		onItemClick(e) {
-			let index=e.currentTarget.dataset.index;
-			let item=this.dataList[index];
+			let index = e.currentTarget.dataset.index;
+			let item = this.dataList[index];
 			uni.navigateTo({
-				url:''
-			})
+				url: `/pages/mine/historydetail?date=${item.date}`
+			});
 		}
 	}
 };
@@ -92,6 +92,10 @@ export default {
 	height: 340rpx;
 	border-radius: 12rpx;
 	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: center; /* 垂直居中 */
+	text-align: center; /* 水平居中 */
 	top: 0;
 	left: 0;
 }
@@ -99,16 +103,16 @@ export default {
 	color: #ffffff;
 	font-size: 32rpx;
 	font-weight: bold;
-	position: absolute;
+	/* position: absolute;
 	left: 30rpx;
-	top: 130rpx;
+	top: 130rpx; */
 }
 
 .item-mask .hot {
 	color: #ffffff;
 	font-size: 28rpx;
-	position: absolute;
+	/* position: absolute;
 	left: 30rpx;
-	top: 180rpx;
+	top: 180rpx; */
 }
 </style>

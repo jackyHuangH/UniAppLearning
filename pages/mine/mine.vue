@@ -59,7 +59,9 @@ export default {
 	methods: {
 		//登录
 		onLoginClick() {
-			console.log('methods：' + 'onLoad');
+			uni.navigateTo({
+				url:'../login/login'
+			})
 		},
 		//获取用户信息
 		getUserInfo() {},
@@ -69,23 +71,33 @@ export default {
 				case 'search':
 					//搜索干货
 					uni.navigateTo({
-						url:'/pages/mine/search'
-					})
+						url: '/pages/mine/search'
+					});
 					break;
 				case 'history':
 					// 历史干货
 					uni.navigateTo({
-						url:'/pages/mine/history'
-					})
+						url: '/pages/mine/history'
+					});
 					break;
 				case 'other':
 					// 其他项目
+					uni.navigateTo({
+						url: '/pages/mine/other'
+					});
 					break;
 				case 'about':
 					// 关于
+					uni.navigateTo({
+						url: '/pages/mine/about'
+					});
 					break;
 				case 'star':
 					// 点赞
+					let url = 'https://github.com/jackyHuangH/UniAppLearning';
+					uni.navigateTo({
+						url: `/pages/web/web?url=${encodeURIComponent(url)}`
+					});
 					break;
 				default:
 					break;

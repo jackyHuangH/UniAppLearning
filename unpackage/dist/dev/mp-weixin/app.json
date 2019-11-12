@@ -8,7 +8,11 @@
     "pages/publish/publish",
     "pages/web/web",
     "pages/mine/search",
-    "pages/mine/history"
+    "pages/mine/history",
+    "pages/mine/historydetail",
+    "pages/mine/other",
+    "pages/mine/about",
+    "pages/login/login"
   ],
   "subPackages": [],
   "window": {

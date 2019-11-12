@@ -43,7 +43,31 @@
 				"navigationBarTitleText": "历史干货"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/mine/historydetail",
+            "style" : {
+				"navigationBarTitleText":""
+			}
+        }
+        ,{
+            "path" : "pages/mine/other",
+            "style" : {
+				"navigationBarTitleText":"其他Gank项目"
+			}
+        }
+        ,{
+            "path" : "pages/mine/about",
+            "style" : {
+				"navigationBarTitleText":"关于"
+			}
+        }
+        ,{
+            "path" : "pages/login/login",
+            "style" : {
+				"navigationBarTitleText":"登录"
+			}
+        }
+    ],
 	"globalStyle": {
 		"mp-alipay": {
 			// 支付宝小程序有关
