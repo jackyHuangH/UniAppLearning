@@ -64,7 +64,7 @@
         ,{
             "path" : "pages/login/login",
             "style" : {
-				"navigationBarTitleText":"登录"
+				"navigationBarTitleText":"学一学"
 			}
         }
     ],
@@ -78,14 +78,14 @@
 		"navigationBarTitleText": "UniAppLeanring",
 		"navigationBarBackgroundColor": "#FFFFFF",
 		"navigationStyle": "default"
-	}
+	},
 	//使用condition方便调试某个页面,仅开发期间生效
-	/* "condition": {
+	"condition": {
 		"current": 0,
 		"list": [{
 			"name": "test",
-			"path": "pages/detail/detail",
-			"query": "newsid=5260320"
+			"path": "pages/login/login",
+			"query": ""
 		}]
-	} */
+	}
 }

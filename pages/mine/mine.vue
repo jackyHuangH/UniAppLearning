@@ -4,7 +4,7 @@
 			<!-- 顶部头像，姓名，图片背景 -->
 			<view class="uCenter-bg">
 				<image :src="userInfo.avator || '../../static/logo.png'" class="png" mode="aspectFill" referrerpolicy="no-referrer" @tap="onLoginClick"></image>
-				<view class="text-xl margin-top" @tap="onLoginClick">{{ userInfo.name || '未登录' }}</view>
+				<view class="text-xl margin-top" @tap="onLoginClick">{{ userInfo.name || '看看基础' }}</view>
 				<view class="text-sm margin-top-xs" @tap="onLoginClick">{{ userInfo.remark || empty }}</view>
 				<image src="../../static/wave.gif" mode="scaleToFill" referrerpolicy="no-referrer" class="gif-wave"></image>
 			</view>
